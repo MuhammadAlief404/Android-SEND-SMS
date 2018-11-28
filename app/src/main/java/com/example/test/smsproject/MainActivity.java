@@ -8,6 +8,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.telephony.SmsManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -41,6 +42,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                SmsManager smsManager = SmsManager.getDefault();
+                smsManager.sendTextMessage(edtNum.getText().toString(),null,edtText.getText().toString(),null,null);
+
             }
         });
     }
@@ -54,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
             case 1:
                 if(grantResults.length > 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
                 {
-
+                    ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.SEND_SMS},1);
                 }
         }
 
