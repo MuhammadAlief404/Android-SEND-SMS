@@ -63,4 +63,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+    /**TODO
+     * 1. Get SMS Text with SMS Receiver
+     * 2. find how to send SMS to real device*/
 }
